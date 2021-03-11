@@ -20,20 +20,16 @@
 
 using namespace vex;
 
-controller::axis driveAxis()
-{
-  return Controller1.Axis1;
-}
-
-controller::axis turnAxis()
-{
-  return Controller1.Axis3;
-}
+controller::axis driveAxis, turnAxis;
 
 int main() 
 {
   // Initializing Robot Configuration. DO NOT REMOVE!
   vexcodeInit();
+
+  //Init axis/button variables
+  driveAxis = Controller1.Axis1;
+  turnAxis = Controller1.Axis3;
 
   drive(vex::forward);  
 }
