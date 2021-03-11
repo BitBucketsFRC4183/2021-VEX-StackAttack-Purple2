@@ -28,9 +28,21 @@ void drive(int axisPos)
   drive(axisPos > 0 ? vex::forward : vex::reverse);
 }
 
+void turn(turnType dir)
+{
+  Drivetrain.turn(dir);
+}
+
+void turn(int axisPos)
+{
+  drive(axisPos > 0 ? vex::forward : vex::reverse);
+}
+
 int main() 
 {
   // Initializing Robot Configuration. DO NOT REMOVE!
   vexcodeInit();
-  
+
+  Drivetrain.setDriveVelocity(50, percent);
+  drive(forward);  
 }
