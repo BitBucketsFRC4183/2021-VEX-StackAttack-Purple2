@@ -19,11 +19,20 @@
 
 using namespace vex;
 
+controller::axis driveAxis()
+{
+  return Controller1.Axis1;
+}
+
+controller::axis turnAxis()
+{
+  return Controller1.Axis3;
+}
+
 int main() 
 {
   // Initializing Robot Configuration. DO NOT REMOVE!
   vexcodeInit();
 
-  Drivetrain.setDriveVelocity(50, percent);
   drive(forward);  
 }
