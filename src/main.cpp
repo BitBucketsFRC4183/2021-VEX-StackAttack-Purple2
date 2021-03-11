@@ -8,11 +8,25 @@
 /*----------------------------------------------------------------------------*/
 
 // ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// Controller1          controller                    
+// Drivetrain           drivetrain    1, 2            
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
 #include "vex.h"
 
 using namespace vex;
+
+void drive(directionType dir)
+{
+  Drivetrain.drive(dir);
+}
+
+void drive(int axisPos)
+{
+  drive(axisPos > 0 ? vex::forward : vex::reverse);
+}
 
 int main() 
 {
