@@ -1,25 +1,9 @@
-#include "vex.h"
-
-using namespace vex;
-
-void drive(directionType dir)
+int clamp(int val, int min, int max)
 {
-  Drivetrain.drive(dir);
+  return val < min ? min : (val > max ? max : val);
 }
 
-void drive(int axisPos)
+int abs(int val)
 {
-  Drivetrain.setDriveVelocity(axisPos < 0 ? axisPos * -1 : axisPos, percent);
-  drive(axisPos > 0 ? vex::forward : vex::reverse);
-}
-
-void turn(turnType dir)
-{
-  Drivetrain.turn(dir);
-}
-
-void turn(int axisPos)
-{
-  Drivetrain.setTurnVelocity(axisPos < 0 ? axisPos * -1 : axisPos, percent);
-  drive(axisPos > 0 ? vex::forward : vex::reverse);
+  return val < 0 ? val * -1 : val;
 }

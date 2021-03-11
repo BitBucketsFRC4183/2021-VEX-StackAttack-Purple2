@@ -1,7 +1,3 @@
-void drive(vex::directionType dir);
+int clamp(int val, int min, int max);
 
-void drive(int axisPos);
-
-void turn(vex::turnType dir);
-
-void turn(int axisPos);
+int abs(int val);

@@ -16,6 +16,7 @@
 
 #include "vex.h"
 #include "global.h"
+#include "controls.h"
 
 using namespace vex;
 
@@ -34,5 +35,5 @@ int main()
   // Initializing Robot Configuration. DO NOT REMOVE!
   vexcodeInit();
 
-  drive(forward);  
+  drive(vex::forward);  
 }
