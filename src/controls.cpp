@@ -3,24 +3,14 @@
 
 using namespace vex;
 
-void drive(directionType dir)
-{
-  Drivetrain.drive(dir);
-}
-
 void drive(int axisPos)
 {
   Drivetrain.setDriveVelocity(clamp(abs(axisPos), 20, 100), percent);
-  drive(axisPos > 0 ? vex::forward : vex::reverse);
-}
-
-void turn(turnType dir)
-{
-  Drivetrain.turn(dir);
+  Drivetrain.drive(axisPos > 0 ? vex::forward : vex::reverse);
 }
 
 void turn(int axisPos)
 {
   Drivetrain.setTurnVelocity(clamp(abs(axisPos), 20, 100), percent);
-  drive(axisPos > 0 ? vex::forward : vex::reverse);
+  Drivetrain.turn(axisPos > 0 ? vex::left : vex::right);
 }
