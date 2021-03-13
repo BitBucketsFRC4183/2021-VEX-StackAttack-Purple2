@@ -54,9 +54,7 @@ int main()
 
   //Comment to disable auton
   //auton();
-  
-  //Comment to disable teleop
-  while(true) teleop();
 
-  drive(vex::forward);  
+  //Comment to disable teleop
+  while(true) teleop(); 
 }
