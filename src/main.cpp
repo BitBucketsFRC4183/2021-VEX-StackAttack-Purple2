@@ -52,5 +52,11 @@ int main()
   driveAxis = Controller1.Axis1;
   turnAxis = Controller1.Axis3;
 
+  //Comment to disable auton
+  //auton();
+  
+  //Comment to disable teleop
+  while(true) teleop();
+
   drive(vex::forward);  
 }
