@@ -22,6 +22,20 @@ using namespace vex;
 
 controller::axis driveAxis, turnAxis;
 
+
+void teleopDrive()
+{
+  int pos = driveAxis.position();
+  if(pos != 0) drive(pos);
+  else Drivetrain.stop();
+}
+
+void teleopTurn()
+{
+  int pos = turnAxis.position();
+  if(pos != 0) turn(pos);
+}
+
 void teleop()
 {
   if(driveAxis.position() != 0)
@@ -49,12 +63,16 @@ int main()
   vexcodeInit();
 
   //Init axis/button variables
-  driveAxis = Controller1.Axis1;
-  turnAxis = Controller1.Axis3;
+  driveAxis = Controller1.Axis3;
+  turnAxis = Controller1.Axis1;
 
   //Comment to disable auton
   //auton();
 
-  //Comment to disable teleop
-  while(true) teleop(); 
+  //Comment to disable teleop (while loop teleop)
+  //while(true) teleop(); 
+
+  //Callback-based teleop
+  driveAxis.changed(teleopDrive);
+  turnAxis.changed(teleopTurn);
 }
