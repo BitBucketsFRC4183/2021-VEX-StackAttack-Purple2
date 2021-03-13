@@ -22,6 +22,27 @@ using namespace vex;
 
 controller::axis driveAxis, turnAxis;
 
+void teleop()
+{
+  if(driveAxis.position() != 0)
+  {
+    drive(driveAxis.position());
+  }
+  else Drivetrain.stop();
+
+  if(turnAxis.position() != 0)
+  {
+    turn(turnAxis.position());
+  }
+
+  waitUntil(!Drivetrain.isMoving());
+}
+
+void auton()
+{
+
+}
+
 int main() 
 {
   // Initializing Robot Configuration. DO NOT REMOVE!
