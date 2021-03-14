@@ -17,11 +17,13 @@ void turn(int axisPos)
 
 void raiseArm()
 {
+  ArmMotor.setVelocity(20, percent);
   ArmMotor.spin(vex::forward);
 }
 
 void lowerArm()
 {
+  ArmMotor.setVelocity(20, percent);
   ArmMotor.spin(vex::reverse);
 }
 
@@ -32,11 +34,13 @@ void stopArm()
 
 void openClaw()
 {
+  ClawMotor.setVelocity(20, percent);
   ClawMotor.spin(vex::forward);
 }
 
 void closeClaw()
 {
+  ClawMotor.setVelocity(20, percent);
   ClawMotor.spin(vex::reverse);
 }
 
