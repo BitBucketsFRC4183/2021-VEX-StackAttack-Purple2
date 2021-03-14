@@ -15,36 +15,30 @@ void turn(int axisPos)
   Drivetrain.turn(axisPos > 0 ? vex::left : vex::right);
 }
 
-void raiseArm()
+void moveArm(int flag)
 {
+  if(flag == 0) ArmMotor.stop();
+
   ArmMotor.setVelocity(20, percent);
-  ArmMotor.spin(vex::forward);
+  ArmMotor.spin(flag > 0 ? vex::forward : vex::reverse);
 }
 
-void lowerArm()
+void moveClaw(int flag)
 {
-  ArmMotor.setVelocity(20, percent);
-  ArmMotor.spin(vex::reverse);
-}
+  if(flag == 0) ClawMotor.stop();
 
-void stopArm()
-{
-  ArmMotor.stop();
-}
-
-void openClaw()
-{
   ClawMotor.setVelocity(20, percent);
-  ClawMotor.spin(vex::forward);
+  ClawMotor.spin(flag > 0 ? vex::forward : vex::reverse);
 }
 
-void closeClaw()
-{
-  ClawMotor.setVelocity(20, percent);
-  ClawMotor.spin(vex::reverse);
-}
+void raiseArm() { moveArm(1); }
 
-void stopClaw()
-{
-  ClawMotor.stop();
-}
+void lowerArm() { moveArm(-1); }
+
+void stopArm() { moveArm(0); }
+
+void openClaw() { moveClaw(1); }
+
+void closeClaw() { moveClaw(-1); }
+
+void stopClaw() { moveClaw(0); }
