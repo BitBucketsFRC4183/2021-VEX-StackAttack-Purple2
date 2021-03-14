@@ -1,7 +1,11 @@
-void drive(vex::directionType dir);
-
 void drive(int axisPos);
 
-void turn(vex::turnType dir);
-
 void turn(int axisPos);
+
+void raiseArm();
+void lowerArm();
+void stopArm();
+
+void openClaw();
+void closeClaw();
+void stopClaw();
