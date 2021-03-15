@@ -81,18 +81,21 @@ int main()
   //while(true) teleop(); 
 
   //Callback-based teleop
-  driveAxis.changed(teleopDrive);
-  turnAxis.changed(teleopTurn);
+  while(true)
+  {
+    driveAxis.changed(teleopDrive);
+    turnAxis.changed(teleopTurn);
 
-  clawOpen.pressed(openClaw);
-  clawClose.pressed(closeClaw);
+    clawOpen.pressed(openClaw);
+    clawClose.pressed(closeClaw);
 
-  clawOpen.released(stopClaw);
-  clawClose.released(stopClaw);
+    clawOpen.released(stopClaw);
+    clawClose.released(stopClaw);
 
-  armUp.pressed(raiseArm);
-  armDown.pressed(lowerArm);
+    armUp.pressed(raiseArm);
+    armDown.pressed(lowerArm);
 
-  armUp.released(stopArm);
-  armDown.released(stopArm);
+    armUp.released(stopArm);
+    armDown.released(stopArm);
+  }
 }
