@@ -41,18 +41,21 @@ int abs(int val)
 
 void drive(int axisPos)
 {
+  Brain.Screen.print("Driving forwards/backwards!");
   Drivetrain.setDriveVelocity(clamp(abs(axisPos), 20, 100), percent);
   Drivetrain.drive(axisPos > 0 ? vex::forward : vex::reverse);
 }
 
 void turn(int axisPos)
 {
+  Brain.Screen.print("Turning left/right!");
   Drivetrain.setTurnVelocity(clamp(abs(axisPos), 20, 100), percent);
   Drivetrain.turn(axisPos > 0 ? vex::left : vex::right);
 }
 
 void moveArm(int flag)
 {
+  Brain.Screen.print("Moving arm!");
   if(flag == 0) ArmMotor.stop();
 
   ArmMotor.setVelocity(20, percent);
@@ -61,6 +64,7 @@ void moveArm(int flag)
 
 void moveClaw(int flag)
 {
+  Brain.Screen.print("Moving claw!");
   if(flag == 0) ClawMotor.stop();
 
   ClawMotor.setVelocity(20, percent);
@@ -94,8 +98,12 @@ void teleopTurn()
 
 int main() 
 {
+  Brain.Screen.print("Start!");
+
   // Initializing Robot Configuration. DO NOT REMOVE!
   vexcodeInit();
+
+  Brain.Screen.print("Init complete!");
 
   //Callback-based teleop
   while(true)
