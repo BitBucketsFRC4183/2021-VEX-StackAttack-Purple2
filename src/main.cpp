@@ -17,13 +17,67 @@
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
 #include "vex.h"
-#include "global.h"
-#include "controls.h"
 
 using namespace vex;
 
-controller::axis driveAxis, turnAxis;
-controller::button clawOpen, clawClose, armUp, armDown;
+controller::axis driveAxis = Controller1.Axis3;
+controller::axis turnAxis = Controller1.Axis1;
+
+controller::button clawOpen = Controller1.ButtonR1;
+controller::button clawClose = Controller1.ButtonR2;
+
+controller::button armUp = Controller1.ButtonL1;
+controller::button armDown = Controller1.ButtonL2;
+
+int clamp(int val, int min, int max)
+{
+  return val < min ? min : (val > max ? max : val);
+}
+
+int abs(int val)
+{
+  return val < 0 ? val * -1 : val;
+}
+
+void drive(int axisPos)
+{
+  Drivetrain.setDriveVelocity(clamp(abs(axisPos), 20, 100), percent);
+  Drivetrain.drive(axisPos > 0 ? vex::forward : vex::reverse);
+}
+
+void turn(int axisPos)
+{
+  Drivetrain.setTurnVelocity(clamp(abs(axisPos), 20, 100), percent);
+  Drivetrain.turn(axisPos > 0 ? vex::left : vex::right);
+}
+
+void moveArm(int flag)
+{
+  if(flag == 0) ArmMotor.stop();
+
+  ArmMotor.setVelocity(20, percent);
+  ArmMotor.spin(flag > 0 ? vex::forward : vex::reverse);
+}
+
+void moveClaw(int flag)
+{
+  if(flag == 0) ClawMotor.stop();
+
+  ClawMotor.setVelocity(20, percent);
+  ClawMotor.spin(flag > 0 ? vex::forward : vex::reverse);
+}
+
+void raiseArm() { moveArm(1); }
+
+void lowerArm() { moveArm(-1); }
+
+void stopArm() { moveArm(0); }
+
+void openClaw() { moveClaw(1); }
+
+void closeClaw() { moveClaw(-1); }
+
+void stopClaw() { moveClaw(0); }
 
 void teleopDrive()
 {
@@ -38,47 +92,10 @@ void teleopTurn()
   if(pos != 0) turn(pos);
 }
 
-void teleop()
-{
-  if(driveAxis.position() != 0)
-  {
-    drive(driveAxis.position());
-  }
-  else Drivetrain.stop();
-
-  if(turnAxis.position() != 0)
-  {
-    turn(turnAxis.position());
-  }
-
-  waitUntil(!Drivetrain.isMoving());
-}
-
-void auton()
-{
-
-}
-
 int main() 
 {
   // Initializing Robot Configuration. DO NOT REMOVE!
   vexcodeInit();
-
-  //Init axis/button variables
-  driveAxis = Controller1.Axis3;
-  turnAxis = Controller1.Axis1;
-
-  clawOpen = Controller1.ButtonR1;
-  clawClose = Controller1.ButtonR2;
-
-  armUp = Controller1.ButtonL1;
-  armDown = Controller1.ButtonL2;
-
-  //Comment to disable auton
-  //auton();
-
-  //Comment to disable teleop (while loop teleop)
-  //while(true) teleop(); 
 
   //Callback-based teleop
   while(true)
