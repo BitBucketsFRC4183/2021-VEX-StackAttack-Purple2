@@ -98,6 +98,7 @@ void teleopTurn()
 
 int main() 
 {
+  Brain.Screen.setCursor(1, 1);
   Brain.Screen.print("Start!");
 
   // Initializing Robot Configuration. DO NOT REMOVE!
