@@ -17,6 +17,7 @@
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
 #include "vex.h"
+#include <iostream>
 
 using namespace vex;
 
@@ -100,6 +101,8 @@ int main()
 {
   Brain.Screen.setCursor(1, 1);
   Brain.Screen.print("Start!");
+
+  std::cout << "Start!";
 
   // Initializing Robot Configuration. DO NOT REMOVE!
   vexcodeInit();
