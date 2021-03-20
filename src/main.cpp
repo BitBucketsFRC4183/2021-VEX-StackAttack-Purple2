@@ -51,7 +51,7 @@ void turn(int axisPos)
 {
   std::cout << "Turning!" << std::endl;
   Drivetrain.setTurnVelocity(clamp(abs(axisPos), 20, 100), percent);
-  Drivetrain.turn(axisPos > 0 ? vex::left : vex::right);
+  Drivetrain.turn(axisPos > 0 ? vex::right : vex::left);
 }
 
 void moveArm(int flag)
