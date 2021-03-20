@@ -21,6 +21,7 @@
 
 using namespace vex;
 
+/*
 controller::axis driveAxis = Controller1.Axis3;
 controller::axis turnAxis = Controller1.Axis1;
 
@@ -29,6 +30,7 @@ controller::button clawClose = Controller1.ButtonR2;
 
 controller::button armUp = Controller1.ButtonL1;
 controller::button armDown = Controller1.ButtonL2;
+
 
 int clamp(int val, int min, int max)
 {
@@ -97,6 +99,8 @@ void teleopTurn()
   if(pos != 0) turn(pos);
 }
 
+*/
+
 int main() 
 {
   std::cout << "Start!" << std::endl;
@@ -104,7 +108,9 @@ int main()
   // Initializing Robot Configuration. DO NOT REMOVE!
   vexcodeInit();
 
-  //Callback-based teleop
+  Drivetrain.driveFor(forward, 10, mm);
+
+  /*Callback-based teleop
   while(true)
   {
     driveAxis.changed(teleopDrive);
@@ -124,4 +130,5 @@ int main()
 
     waitUntil(Drivetrain.isDone());
   }
+  */
 }
