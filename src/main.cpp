@@ -21,7 +21,6 @@
 
 using namespace vex;
 
-/*
 controller::axis driveAxis = Controller1.Axis3;
 controller::axis turnAxis = Controller1.Axis1;
 
@@ -99,7 +98,6 @@ void teleopTurn()
   if(pos != 0) turn(pos);
 }
 
-*/
 
 int main() 
 {
@@ -108,9 +106,7 @@ int main()
   // Initializing Robot Configuration. DO NOT REMOVE!
   vexcodeInit();
 
-  Drivetrain.driveFor(forward, 10, mm);
-
-  /*Callback-based teleop
+  //Callback-based teleop
   while(true)
   {
     driveAxis.changed(teleopDrive);
@@ -130,5 +126,4 @@ int main()
 
     waitUntil(Drivetrain.isDone());
   }
-  */
 }
