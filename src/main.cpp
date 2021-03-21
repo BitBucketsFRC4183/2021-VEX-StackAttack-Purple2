@@ -95,9 +95,9 @@ void teleopDrive()
 void teleopTurn()
 {
   int pos = turnAxis().position();
-  if(pos != 0) turn(pos);
+  if(pos < -30 || pos > 30) turn(pos);
+  else Drivetrain.stop();
 }
-
 
 int main() 
 {
