@@ -21,14 +21,14 @@
 
 using namespace vex;
 
-controller::axis driveAxis = Controller1.Axis3;
-controller::axis turnAxis = Controller1.Axis1;
+controller::axis driveAxis() { return Controller1.Axis3; }
+controller::axis turnAxis() { return Controller1.Axis1; }
 
-controller::button clawOpen = Controller1.ButtonR1;
-controller::button clawClose = Controller1.ButtonR2;
+controller::button clawOpen() { return Controller1.ButtonR1; }
+controller::button clawClose() { return Controller1.ButtonR2; }
 
-controller::button armUp = Controller1.ButtonL1;
-controller::button armDown = Controller1.ButtonL2;
+controller::button armUp() { return Controller1.ButtonL1; }
+controller::button armDown() { return Controller1.ButtonL2; }
 
 
 int clamp(int val, int min, int max)
@@ -87,14 +87,14 @@ void stopClaw() { moveClaw(0); }
 
 void teleopDrive()
 {
-  int pos = driveAxis.position();
+  int pos = driveAxis().position();
   if(pos != 0) drive(pos);
   else Drivetrain.stop();
 }
 
 void teleopTurn()
 {
-  int pos = turnAxis.position();
+  int pos = turnAxis().position();
   if(pos != 0) turn(pos);
 }
 
@@ -109,20 +109,20 @@ int main()
   //Callback-based teleop
   while(true)
   {
-    driveAxis.changed(teleopDrive);
-    turnAxis.changed(teleopTurn);
+    driveAxis().changed(teleopDrive);
+    turnAxis().changed(teleopTurn);
 
-    clawOpen.pressed(openClaw);
-    clawClose.pressed(closeClaw);
+    clawOpen().pressed(openClaw);
+    clawClose().pressed(closeClaw);
 
-    clawOpen.released(stopClaw);
-    clawClose.released(stopClaw);
+    clawOpen().released(stopClaw);
+    clawClose().released(stopClaw);
 
-    armUp.pressed(raiseArm);
-    armDown.pressed(lowerArm);
+    armUp().pressed(raiseArm);
+    armDown().pressed(lowerArm);
 
-    armUp.released(stopArm);
-    armDown.released(stopArm);
+    armUp().released(stopArm);
+    armDown().released(stopArm);
 
     waitUntil(Drivetrain.isDone());
   }
