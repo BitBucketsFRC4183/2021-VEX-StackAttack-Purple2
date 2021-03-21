@@ -21,6 +21,9 @@
 
 using namespace vex;
 
+//Trying out pointer instead of method
+controller::axis* driveAxisPointer = &Controller1.Axis3;
+
 controller::axis driveAxis() { return Controller1.Axis3; }
 controller::axis turnAxis() { return Controller1.Axis1; }
 
@@ -113,7 +116,8 @@ int main()
   //Callback-based teleop
   while(true)
   {
-    driveAxis().changed(teleopDrive);
+    driveAxisPointer -> changed(teleopDrive);
+    //driveAxis().changed(teleopDrive);
     turnAxis().changed(teleopTurn);
 
     clawOpen().pressed(openClaw);
@@ -128,6 +132,6 @@ int main()
     armUp().released(stopArm);
     armDown().released(stopArm);
 
-    waitUntil(Drivetrain.isDone());
+    wait(0.1, seconds);
   }
 }
