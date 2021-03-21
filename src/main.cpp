@@ -17,6 +17,7 @@
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
 #include "vex.h"
+#include "utils.h"
 #include <iostream>
 
 using namespace vex;
@@ -29,17 +30,6 @@ controller::button clawClose() { return Controller1.ButtonR2; }
 
 controller::button armUp() { return Controller1.ButtonL1; }
 controller::button armDown() { return Controller1.ButtonL2; }
-
-
-int clamp(int val, int min, int max)
-{
-  return val < min ? min : (val > max ? max : val);
-}
-
-int abs(int val)
-{
-  return val < 0 ? val * -1 : val;
-}
 
 void drive(int axisPos)
 {
