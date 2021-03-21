@@ -55,36 +55,6 @@ void turn(int axisPos)
   Drivetrain.turn(axisPos > 0 ? vex::right : vex::left);
 }
 
-void moveArm(int flag)
-{
-  std::cout << "Moving arm!" << std::endl;
-  if(flag == 0) ArmMotor.stop();
-
-  ArmMotor.setVelocity(20, percent);
-  ArmMotor.spin(flag > 0 ? vex::forward : vex::reverse);
-}
-
-void moveClaw(int flag)
-{
-  std::cout << "Moving claw!" << std::endl;
-  if(flag == 0) ClawMotor.stop();
-
-  ClawMotor.setVelocity(20, percent);
-  ClawMotor.spin(flag > 0 ? vex::forward : vex::reverse);
-}
-
-void raiseArm() { moveArm(1); }
-
-void lowerArm() { moveArm(-1); }
-
-void stopArm() { moveArm(0); }
-
-void openClaw() { moveClaw(1); }
-
-void closeClaw() { moveClaw(-1); }
-
-void stopClaw() { moveClaw(0); }
-
 void teleopDrive()
 {
   int pos = driveAxis().position();
@@ -115,18 +85,6 @@ int main()
   {
     driveAxis().changed(teleopDrive);
     turnAxis().changed(teleopTurn);
-
-    clawOpen().pressed(openClaw);
-    clawClose().pressed(closeClaw);
-
-    clawOpen().released(stopClaw);
-    clawClose().released(stopClaw);
-
-    armUp().pressed(raiseArm);
-    armDown().pressed(lowerArm);
-
-    armUp().released(stopArm);
-    armDown().released(stopArm);
 
     wait(0.1, seconds);
   }
