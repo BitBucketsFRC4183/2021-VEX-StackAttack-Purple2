@@ -106,6 +106,10 @@ int main()
   // Initializing Robot Configuration. DO NOT REMOVE!
   vexcodeInit();
 
+  Drivetrain.setStopping(brake);
+  ClawMotor.setStopping(hold);
+  ArmMotor.setStopping(hold);
+
   //Callback-based teleop
   while(true)
   {
