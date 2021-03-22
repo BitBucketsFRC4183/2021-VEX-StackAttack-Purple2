@@ -1,11 +1,15 @@
 #include "vex.h"
-#include <iostream>
+#include "utils.h"
 
 void getHomeForDinner()
 {
-  std::cout << "Auto: Moving forward!" << std::endl;
+  printDebug("Auto: Moving forward!");
+
   Drivetrain.driveFor(forward, 12, inches);
-  std::cout << "Auto: Moving backward into home!" << std::endl;
+
+  printDebug("Auto: Moving backward into home!");
+
   Drivetrain.driveFor(reverse, 12, inches);
-  std::cout << "Auto: Task Get Home for Dinner complete!" << std::endl;
+  
+  printDebug("Auto: Task Get Home for Dinner complete!");
 }

@@ -20,7 +20,6 @@
 #include "utils.h"
 #include "movement.h"
 #include "autonomous.h"
-#include <iostream>
 
 using namespace vex;
 
@@ -65,7 +64,7 @@ void auton()
 
 int main() 
 {
-  std::cout << "Start!" << std::endl;
+  printDebug("Start!");
 
   // Initializing Robot Configuration. DO NOT REMOVE!
   vexcodeInit();
@@ -76,14 +75,14 @@ int main()
 
   //Autonomous and Teleop Controls
 
-  std::cout << "Starting autonomous!" << std::endl;
+  printDebug("Starting autonomous!");
 
   auton();
 
   Drivetrain.stop();
   wait(500, msec);
 
-  std::cout << "Starting teleop!" << std::endl;
+  printDebug("Starting teleop!");
 
   teleop();
 }
