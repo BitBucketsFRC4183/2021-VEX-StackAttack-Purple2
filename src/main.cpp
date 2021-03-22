@@ -11,13 +11,14 @@
 // Robot Configuration:
 // [Name]               [Type]        [Port(s)]
 // Controller1          controller                    
-// Drivetrain           drivetrain    10, 1           
+// Drivetrain           drivetrain    1, 10           
 // ClawMotor            motor         3               
 // ArmMotor             motor         8               
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
 #include "vex.h"
 #include "utils.h"
+#include "movement.h"
 #include "autonomous.h"
 #include <iostream>
 
@@ -31,20 +32,6 @@ controller::button clawClose() { return Controller1.ButtonR2; }
 
 controller::button armUp() { return Controller1.ButtonL1; }
 controller::button armDown() { return Controller1.ButtonL2; }
-
-void drive(int axisPos)
-{
-  std::cout << "Driving!" << std::endl;
-  Drivetrain.setDriveVelocity(clamp(abs(axisPos), 20, 100), percent);
-  Drivetrain.drive(axisPos > 0 ? vex::forward : vex::reverse);
-}
-
-void turn(int axisPos)
-{
-  std::cout << "Turning!" << std::endl;
-  Drivetrain.setTurnVelocity(clamp(abs(axisPos), 20, 100), percent);
-  Drivetrain.turn(axisPos > 0 ? vex::right : vex::left);
-}
 
 void teleopDrive()
 {
