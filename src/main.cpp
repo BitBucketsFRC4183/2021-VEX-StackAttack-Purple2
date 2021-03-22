@@ -35,14 +35,14 @@ controller::button armDown() { return Controller1.ButtonL2; }
 void teleopDrive()
 {
   int pos = driveAxis().position();
-  if(pos != 0) drive(pos);
+  if(pos < -10 || pos > 10) drive(pos);
   else Drivetrain.stop();
 }
 
 void teleopTurn()
 {
   int pos = turnAxis().position();
-  if(pos < -30 || pos > 30) turn(pos);
+  if(pos < -10 || pos > 10) turn(pos);
   else Drivetrain.stop();
 }
 
