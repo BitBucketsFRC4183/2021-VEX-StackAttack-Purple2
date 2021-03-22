@@ -18,6 +18,7 @@
 
 #include "vex.h"
 #include "utils.h"
+#include "autonomous.h"
 #include <iostream>
 
 using namespace vex;
@@ -59,6 +60,22 @@ void teleopTurn()
   else Drivetrain.stop();
 }
 
+void teleop()
+{
+  while(true)
+  {
+    driveAxis().changed(teleopDrive);
+    turnAxis().changed(teleopTurn);
+
+    wait(0.1, seconds);
+  }
+}
+
+void auton()
+{
+  getHomeForDinner();
+}
+
 int main() 
 {
   std::cout << "Start!" << std::endl;
@@ -70,12 +87,16 @@ int main()
   ClawMotor.setStopping(hold);
   ArmMotor.setStopping(hold);
 
-  //Callback-based teleop
-  while(true)
-  {
-    driveAxis().changed(teleopDrive);
-    turnAxis().changed(teleopTurn);
+  //Autonomous and Teleop Controls
 
-    wait(0.1, seconds);
-  }
+  std::cout << "Starting autonomous!" << std::endl;
+
+  auton();
+
+  Drivetrain.stop();
+  wait(500, msec);
+
+  std::cout << "Starting teleop!" << std::endl;
+
+  teleop();
 }
