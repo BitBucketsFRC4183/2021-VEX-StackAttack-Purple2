@@ -1,5 +1,6 @@
 #include <iostream>
 #include <sstream>
+#include "vex.h"
 
 int clamp(int val, int min, int max)
 {
@@ -14,6 +15,9 @@ int abs(int val)
 void printDebug(std::string s)
 {
   std::cout << s << std::endl;
+
+  Brain.Screen.clearScreen();
+  Brain.Screen.print(s);
 }
 
 std::string boolToString(bool b)
