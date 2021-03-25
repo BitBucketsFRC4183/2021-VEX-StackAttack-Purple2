@@ -13,3 +13,24 @@ void getHomeForDinner()
   
   printDebug("Auto: Task Get Home for Dinner complete!");
 }
+
+bool findObject(vision::signature s)
+{
+  Vision.takeSnapshot(s);
+  return Vision.objectCount > 0;
+}
+
+bool findGreenCube()
+{
+  return findObject(Vision__GREEN_CUBE);
+}
+
+bool findPurpleCube()
+{
+  return findObject(Vision__PURPLE_CUBE);
+}
+
+bool findOrangeCube()
+{
+  return findObject(Vision__ORANGE_CUBE);
+}

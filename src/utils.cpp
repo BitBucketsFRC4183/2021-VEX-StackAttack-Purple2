@@ -1,4 +1,5 @@
 #include <iostream>
+#include <sstream>
 
 int clamp(int val, int min, int max)
 {
@@ -13,4 +14,11 @@ int abs(int val)
 void printDebug(std::string s)
 {
   std::cout << s << std::endl;
+}
+
+std::string boolToString(bool b)
+{
+  std::ostringstream converter;
+  converter << std::boolalpha << b;
+  return converter.str();
 }

@@ -14,6 +14,7 @@
 // Drivetrain           drivetrain    1, 10           
 // ClawMotor            motor         3               
 // ArmMotor             motor         8               
+// Vision               vision        15              
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
 #include "vex.h"
@@ -60,6 +61,8 @@ void teleop()
 void auton()
 {
   getHomeForDinner();
+
+  printDebug(boolToString(findGreenCube()));
 }
 
 int main() 
