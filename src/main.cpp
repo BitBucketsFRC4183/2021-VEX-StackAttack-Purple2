@@ -13,6 +13,8 @@
 // Controller1          controller                    
 // Drivetrain           drivetrain    1, 10           
 // Vision               vision        15              
+// IntakeL              motor         21              
+// IntakeR              motor         20              
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
 #include "vex.h"
@@ -70,7 +72,12 @@ int main()
   // Initializing Robot Configuration. DO NOT REMOVE!
   vexcodeInit();
 
+  //Set drivetrain brake mode
   Drivetrain.setStopping(brake);
+
+  //Set intake motor velocities
+  IntakeL.setVelocity(100, percent);
+  IntakeR.setVelocity(100, percent);
 
   //Autonomous and Teleop Controls
 

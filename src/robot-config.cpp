@@ -15,6 +15,8 @@ drivetrain Drivetrain = drivetrain(LeftDriveSmart, RightDriveSmart, 319.19, 292.
 /*vex-vision-config:begin*/
 vision Vision = vision (PORT15, 50);
 /*vex-vision-config:end*/
+motor IntakeL = motor(PORT21, ratio18_1, false);
+motor IntakeR = motor(PORT20, ratio18_1, false);
 
 // VEXcode generated functions
 // define variable for remote controller enable/disable
