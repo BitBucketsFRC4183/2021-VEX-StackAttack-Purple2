@@ -7,8 +7,6 @@ using signature = vision::signature;
 // VEXcode devices
 extern controller Controller1;
 extern drivetrain Drivetrain;
-extern motor ClawMotor;
-extern motor ArmMotor;
 extern signature Vision__GREEN_CUBE;
 extern signature Vision__PURPLE_CUBE;
 extern signature Vision__ORANGE_CUBE;

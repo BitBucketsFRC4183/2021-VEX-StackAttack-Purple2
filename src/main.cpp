@@ -12,8 +12,6 @@
 // [Name]               [Type]        [Port(s)]
 // Controller1          controller                    
 // Drivetrain           drivetrain    1, 10           
-// ClawMotor            motor         3               
-// ArmMotor             motor         8               
 // Vision               vision        15              
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
@@ -73,8 +71,6 @@ int main()
   vexcodeInit();
 
   Drivetrain.setStopping(brake);
-  ClawMotor.setStopping(hold);
-  ArmMotor.setStopping(hold);
 
   //Autonomous and Teleop Controls
 

@@ -12,8 +12,6 @@ controller Controller1 = controller(primary);
 motor LeftDriveSmart = motor(PORT1, ratio18_1, false);
 motor RightDriveSmart = motor(PORT10, ratio18_1, true);
 drivetrain Drivetrain = drivetrain(LeftDriveSmart, RightDriveSmart, 319.19, 292.1, 171.45, mm, 1);
-motor ClawMotor = motor(PORT3, ratio18_1, false);
-motor ArmMotor = motor(PORT8, ratio18_1, false);
 /*vex-vision-config:begin*/
 vision Vision = vision (PORT15, 50);
 /*vex-vision-config:end*/
