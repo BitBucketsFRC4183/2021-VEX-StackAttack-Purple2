@@ -1,6 +1,11 @@
 #include "vex.h"
 #include "utils.h"
 
+void stopDrive()
+{
+  Drivetrain.stop();
+}
+
 void drive(vex::directionType dir)
 {
   Drivetrain.drive(dir);

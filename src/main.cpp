@@ -21,30 +21,31 @@
 #include "utils.h"
 #include "movement.h"
 #include "autonomous.h"
+#include "intake.h"
 
 using namespace vex;
 
 controller::axis driveAxis() { return Controller1.Axis3; }
 controller::axis turnAxis() { return Controller1.Axis1; }
 
-controller::button clawOpen() { return Controller1.ButtonR1; }
-controller::button clawClose() { return Controller1.ButtonR2; }
+controller::button activateIntake() { return Controller1.ButtonR1; }
+controller::button activateOuttake() { return Controller1.ButtonL1; }
 
-controller::button armUp() { return Controller1.ButtonL1; }
-controller::button armDown() { return Controller1.ButtonL2; }
+controller::button disableIntake() { return Controller1.ButtonA; }
+controller::button disableDrive() { return Controller1.ButtonB; }
 
 void teleopDrive()
 {
   int pos = driveAxis().position();
   if(pos < -10 || pos > 10) drive(pos);
-  else Drivetrain.stop();
+  else stopDrive();
 }
 
 void teleopTurn()
 {
   int pos = turnAxis().position();
   if(pos < -10 || pos > 10) turn(pos);
-  else Drivetrain.stop();
+  else stopDrive();
 }
 
 void teleop()
@@ -53,6 +54,15 @@ void teleop()
   {
     driveAxis().changed(teleopDrive);
     turnAxis().changed(teleopTurn);
+
+    activateIntake().pressed(intake);
+    activateOuttake().pressed(outtake);
+
+    activateIntake().released(stopIntakeMotors);
+    activateOuttake().released(stopIntakeMotors);
+
+    disableIntake().pressed(stopIntakeMotors);
+    disableDrive().pressed(stopDrive);
 
     wait(0.1, seconds);
   }

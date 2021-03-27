@@ -1,5 +1,7 @@
 #include "vex.h"
 
+void stopDrive();
+
 void drive(vex::directionType dir);
 
 void turn(vex::turnType dir);
