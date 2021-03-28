@@ -4,6 +4,6 @@ int abs(int val);
 
 void printDebug(std::string s);
 
-void printTime(int i);
+void printTime(float i);
 
 std::string boolToString(bool b);

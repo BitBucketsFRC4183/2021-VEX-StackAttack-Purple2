@@ -20,13 +20,13 @@ void printDebug(std::string s)
   Brain.Screen.print(s);
 }
 
-void printTime(int i)
+void printTime(float i)
 {
-  std::cout << i << "ms" << std::endl;
+  std::cout << i << " s" << std::endl;
 
   Brain.Screen.clearScreen();
   Brain.Screen.print(i);
-  Brain.Screen.print(" ms");
+  Brain.Screen.print(" s");
 }
 
 std::string boolToString(bool b)

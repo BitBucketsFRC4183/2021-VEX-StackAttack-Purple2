@@ -77,7 +77,7 @@ void auton()
 
   printDebug(boolToString(findGreenCube()));
 
-  uint32_t autonTime = vex::timer::system() - start;
+  float autonTime = (vex::timer::system() - start) / 1000;
   printTime(autonTime);
 }
 
