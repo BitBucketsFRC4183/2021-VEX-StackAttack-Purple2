@@ -27,10 +27,10 @@ void getHomeForDinner()
 {
   printDebug("Auto: Task Get Home for Dinner starting!");
 
+  //Drive out of home
   Drivetrain.driveFor(forward, 12, inches);
 
-  printDebug("Auto: Moving backward into home!");
-
+  //Drive back into home
   Drivetrain.driveFor(reverse, 12, inches);
   
   printDebug("Auto: Task Get Home for Dinner complete!");
