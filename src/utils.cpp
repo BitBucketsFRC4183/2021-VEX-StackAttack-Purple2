@@ -20,6 +20,15 @@ void printDebug(std::string s)
   Brain.Screen.print(s);
 }
 
+void printTime(int i)
+{
+  std::cout << i << "ms" << std::endl;
+
+  Brain.Screen.clearScreen();
+  Brain.Screen.print(i);
+  Brain.Screen.print(" ms");
+}
+
 std::string boolToString(bool b)
 {
   std::ostringstream converter;

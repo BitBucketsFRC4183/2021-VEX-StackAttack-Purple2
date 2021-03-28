@@ -22,6 +22,7 @@
 #include "movement.h"
 #include "autonomous.h"
 #include "intake.h"
+#include "vex_timer.h"
 
 using namespace vex;
 
@@ -70,9 +71,14 @@ void teleop()
 
 void auton()
 {
+  uint32_t start = vex::timer::system();
+
   getHomeForDinner();
 
   printDebug(boolToString(findGreenCube()));
+
+  uint32_t autonTime = vex::timer::system() - start;
+  printTime(autonTime);
 }
 
 int main() 
