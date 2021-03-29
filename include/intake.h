@@ -1,5 +1,3 @@
+void spinIntakeMotors(vex::directionType dir);
+
 void stopIntakeMotors();
-
-void intake();
-
-void outtake();

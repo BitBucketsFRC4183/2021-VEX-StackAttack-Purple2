@@ -44,8 +44,8 @@ void teleop()
     driveAxis().changed([](){drive(driveAxis().position());});
     turnAxis().changed([](){turn(turnAxis().position());});
 
-    activateIntake().pressed(intake);
-    activateOuttake().pressed(outtake);
+    activateIntake().pressed([](){spinIntakeMotors(vex::forward);});
+    activateOuttake().pressed([](){spinIntakeMotors(vex::reverse);});
 
     activateIntake().released(stopIntakeMotors);
     activateOuttake().released(stopIntakeMotors);

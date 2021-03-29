@@ -11,14 +11,3 @@ void stopIntakeMotors()
   IntakeL.stop();
   IntakeR.stop();
 }
-
-void intake()
-{
-  spinIntakeMotors(vex::forward);
-}
-
-void outtake()
-{
-  spinIntakeMotors(vex::reverse);
-}
-
