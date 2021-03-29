@@ -32,14 +32,22 @@ void drive(int axisPos)
 {
   printDebug("Driving!");
 
-  setDriveVel(axisPos);
-  drive(axisPos > 0 ? vex::forward : vex::reverse);
+  if(axisPos > -10 && axisPos < 10) stopDrive();
+  else
+  {
+    setDriveVel(axisPos);
+    drive(axisPos > 0 ? vex::forward : vex::reverse);
+  }  
 }
 
 void turn(int axisPos)
 {
   printDebug("Turning!");
 
-  setTurnVel(axisPos, 20);
-  turn(axisPos > 0 ? vex::right : vex::left);
+  if(axisPos > -10 && axisPos < 10) stopDrive();
+  else
+  {
+    setTurnVel(axisPos, 20);
+    turn(axisPos > 0 ? vex::right : vex::left);
+  }
 }

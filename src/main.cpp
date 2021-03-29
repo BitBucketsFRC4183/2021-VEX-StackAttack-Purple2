@@ -26,6 +26,8 @@
 
 using namespace vex;
 
+vex::competition Competition;
+
 controller::axis driveAxis() { return Controller1.Axis3; }
 controller::axis turnAxis() { return Controller1.Axis1; }
 
@@ -35,26 +37,12 @@ controller::button activateOuttake() { return Controller1.ButtonL1; }
 controller::button disableIntake() { return Controller1.ButtonA; }
 controller::button disableDrive() { return Controller1.ButtonB; }
 
-void teleopDrive()
-{
-  int pos = driveAxis().position();
-  if(pos < -10 || pos > 10) drive(pos);
-  else stopDrive();
-}
-
-void teleopTurn()
-{
-  int pos = turnAxis().position();
-  if(pos < -10 || pos > 10) turn(pos);
-  else stopDrive();
-}
-
 void teleop()
 {
   while(true)
   {
-    driveAxis().changed(teleopDrive);
-    turnAxis().changed(teleopTurn);
+    driveAxis().changed([](){drive(driveAxis().position());});
+    turnAxis().changed([](){turn(turnAxis().position());});
 
     activateIntake().pressed(intake);
     activateOuttake().pressed(outtake);
@@ -94,6 +82,10 @@ int main()
   //Set intake motor velocities
   IntakeL.setVelocity(100, percent);
   IntakeR.setVelocity(100, percent);
+
+  //Competition stuff, commented out until needed
+  //Competition.autonomous(auton);
+  //Competition.drivercontrol(teleop);
 
   //Autonomous and Teleop Controls
 
