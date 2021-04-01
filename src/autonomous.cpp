@@ -10,17 +10,20 @@ bool findObject(vision::signature s)
 
 bool findGreenCube()
 {
-  return findObject(Vision__GREEN_CUBE);
+  return false;
+  //return findObject(Vision__GREEN_CUBE);
 }
 
 bool findPurpleCube()
 {
-  return findObject(Vision__PURPLE_CUBE);
+  return false;
+  //return findObject(Vision__PURPLE_CUBE);
 }
 
 bool findOrangeCube()
 {
-  return findObject(Vision__ORANGE_CUBE);
+  return false;
+  //return findObject(Vision__ORANGE_CUBE);
 }
 
 void getHomeForDinner()
