@@ -93,6 +93,9 @@ void setTheTable()
   //Drive home
   Drivetrain.driveFor(forward, isGreen ? 12 : 24, inches);
 
+  //Drop off cube
+  spinIntakeMotors(vex::reverse);
+
   printDebug("Auto: Task Set the Table complete!");
 }
 

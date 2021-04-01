@@ -92,8 +92,10 @@ int main()
   //Set intake motor velocities
   IntakeL.setVelocity(100, percent);
   IntakeR.setVelocity(100, percent);
-
   RampMotor.setVelocity(30, percent);
+
+  IntakeL.setStopping(vex::brake);
+  IntakeR.setStopping(vex::brake);
   RampMotor.setStopping(vex::hold);
 
   //Competition stuff, commented out until needed
