@@ -16,17 +16,17 @@ void printDebug(std::string s)
 {
   std::cout << s << std::endl;
 
-  Brain.Screen.clearScreen();
-  Brain.Screen.print(s);
+  //Brain.Screen.clearScreen();
+  //Brain.Screen.print(s);
 }
 
 void printTime(float i)
 {
   std::cout << i << " s" << std::endl;
 
-  Brain.Screen.clearScreen();
-  Brain.Screen.print(i);
-  Brain.Screen.print(" s");
+  //Brain.Screen.clearScreen();
+  //Brain.Screen.print(i);
+  //Brain.Screen.print(" s");
 }
 
 std::string boolToString(bool b)
