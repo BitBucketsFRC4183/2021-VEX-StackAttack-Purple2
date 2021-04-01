@@ -15,6 +15,7 @@
 // Vision               vision        15              
 // IntakeL              motor         8               
 // IntakeR              motor         3               
+// RampMotor            motor         13              
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
 #include "vex.h"
@@ -34,6 +35,9 @@ controller::axis turnAxis() { return Controller1.Axis1; }
 controller::button activateIntake() { return Controller1.ButtonR1; }
 controller::button activateOuttake() { return Controller1.ButtonL1; }
 
+controller::button raiseRamp() { return Controller1.ButtonR2; }
+controller::button lowerRamp() { return Controller1.ButtonL2; }
+
 controller::button disableIntake() { return Controller1.ButtonA; }
 controller::button disableDrive() { return Controller1.ButtonB; }
 
@@ -49,6 +53,12 @@ void teleop()
 
     activateIntake().released(stopIntakeMotors);
     activateOuttake().released(stopIntakeMotors);
+
+    raiseRamp().pressed([](){spinRampMotor(vex::forward);});
+    lowerRamp().pressed([](){spinRampMotor(vex::reverse);});
+
+    raiseRamp().released(stopRampMotor);
+    lowerRamp().released(stopRampMotor);
 
     disableIntake().pressed(stopIntakeMotors);
     disableDrive().pressed(stopDrive);
@@ -77,11 +87,14 @@ int main()
   vexcodeInit();
 
   //Set drivetrain brake mode
-  Drivetrain.setStopping(brake);
+  Drivetrain.setStopping(vex::brake);
 
   //Set intake motor velocities
   IntakeL.setVelocity(100, percent);
   IntakeR.setVelocity(100, percent);
+
+  RampMotor.setVelocity(30, percent);
+  RampMotor.setStopping(vex::hold);
 
   //Competition stuff, commented out until needed
   //Competition.autonomous(auton);

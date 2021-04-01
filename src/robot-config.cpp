@@ -17,6 +17,7 @@ vision Vision = vision (PORT15, 50);
 /*vex-vision-config:end*/
 motor IntakeL = motor(PORT8, ratio18_1, false);
 motor IntakeR = motor(PORT3, ratio18_1, false);
+motor RampMotor = motor(PORT13, ratio18_1, false);
 
 // VEXcode generated functions
 // define variable for remote controller enable/disable

@@ -17,6 +17,7 @@ extern signature Vision__SIG_7;
 extern vision Vision;
 extern motor IntakeL;
 extern motor IntakeR;
+extern motor RampMotor;
 
 /**
  * Used to initialize code/tasks/devices added using tools in VEXcode Pro.

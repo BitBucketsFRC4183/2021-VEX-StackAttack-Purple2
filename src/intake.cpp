@@ -11,3 +11,13 @@ void stopIntakeMotors()
   IntakeL.stop();
   IntakeR.stop();
 }
+
+void spinRampMotor(vex::directionType dir)
+{
+  RampMotor.spin(dir);
+}
+
+void stopRampMotor()
+{
+  RampMotor.stop();
+}
