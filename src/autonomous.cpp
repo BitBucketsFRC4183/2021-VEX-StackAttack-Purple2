@@ -42,7 +42,7 @@ void takeOutTheRecycling()
   printDebug("Auto: Task Take Out Recycling starting!");
 
   //Intake cube
-  intake();
+  spinIntakeMotors(vex::forward);
 
   wait(500, msec);
 
@@ -50,7 +50,7 @@ void takeOutTheRecycling()
   Drivetrain.driveFor(forward, 36, inches);
   
   //Deposit cube
-  outtake();
+  spinIntakeMotors(vex::reverse);
 
   printDebug("Auto: Task Take Out Recycling complete!");
 }
@@ -82,7 +82,7 @@ void setTheTable()
   }
 
   //Intake
-  intake();
+  spinIntakeMotors(vex::forward);
 
   //Turn towards home
   Drivetrain.turnFor(right, 90, degrees);
