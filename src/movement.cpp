@@ -19,13 +19,13 @@ void turn(vex::turnType dir)
 void setDriveVel(int vel, int min = 0, int max = 100)
 {
   int finalVel = clamp(abs(vel), min, max);
-  Drivetrain.setDriveVelocity(finalVel, percent);
+  Drivetrain.setDriveVelocity(finalVel * 1.0, percent);
 }
 
 void setTurnVel(int vel, int min = 0, int max = 100)
 {
   int finalVel = clamp(abs(vel), min, max);
-  Drivetrain.setTurnVelocity(finalVel, percent);
+  Drivetrain.setTurnVelocity(finalVel * 1.0, percent);
 }
 
 void drive(int axisPos)

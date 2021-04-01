@@ -90,9 +90,9 @@ int main()
   Drivetrain.setStopping(vex::brake);
 
   //Set intake motor velocities
-  IntakeL.setVelocity(100, percent);
-  IntakeR.setVelocity(100, percent);
-  RampMotor.setVelocity(30, percent);
+  IntakeL.setVelocity(100.0, percent);
+  IntakeR.setVelocity(100.0, percent);
+  RampMotor.setVelocity(30.0, percent);
 
   IntakeL.setStopping(vex::brake);
   IntakeR.setStopping(vex::brake);
