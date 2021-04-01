@@ -13,8 +13,8 @@
 // Controller1          controller                    
 // Drivetrain           drivetrain    1, 10           
 // Vision               vision        15              
-// IntakeL              motor         21              
-// IntakeR              motor         20              
+// IntakeL              motor         8               
+// IntakeR              motor         3               
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
 #include "vex.h"
