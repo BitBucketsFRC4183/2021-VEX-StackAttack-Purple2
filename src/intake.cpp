@@ -1,15 +1,22 @@
 #include "vex.h"
 
+void stopIntakeMotors()
+{
+  IntakeL.stop();
+  IntakeR.stop();
+}
+
 void spinIntakeMotors(vex::directionType dir)
 {
   IntakeL.spin(dir);
   IntakeR.spin(dir == vex::forward ? vex::reverse : vex::forward);
 }
 
-void stopIntakeMotors()
+void spinIntakeMotors(vex::directionType dir, int pause)
 {
-  IntakeL.stop();
-  IntakeR.stop();
+  spinIntakeMotors(dir);
+  wait(pause, msec);
+  stopIntakeMotors();
 }
 
 void spinRampMotor(vex::directionType dir)
