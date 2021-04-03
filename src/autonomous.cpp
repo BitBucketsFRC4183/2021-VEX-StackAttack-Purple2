@@ -130,6 +130,7 @@ void walkTheDog()
 //All strategies assume that the robot is facing right, and the robot & starting cube are perfectly aligned with the recycling can
 
 //Strategy 1: Drive right, cross sidewalk, return home
+//Completes: Get Home for Dinner, Walk the Dog
 void strategy1()
 {
   //Drive right
@@ -155,6 +156,7 @@ void strategy1()
 }
 
 //Stategy 2: Intake starting cube, drive right, drop off cube, cross sidewalk, return home (No vision involved)
+//Completes: Get Home for Dinner, Take out the Recycling, Walk the Dog
 void strategy2()
 {
   //Intake starting cube
@@ -186,6 +188,7 @@ void strategy2()
 }
 
 //Strategy 3: Same as strategy 2, except after crossing sidewalk, pick up green cube and then return home
+//Completes: Get Home for Dinner, Take out the Recycling, Walk the Dog, Set the Table
 void strategy3()
 {
   
