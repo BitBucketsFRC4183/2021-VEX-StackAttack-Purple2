@@ -11,3 +11,5 @@ void takeOutTheRecycling();
 void setTheTable();
 
 void walkTheDog();
+
+void runRoutine(int strategy);

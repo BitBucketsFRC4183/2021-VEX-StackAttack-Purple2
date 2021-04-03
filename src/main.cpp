@@ -71,9 +71,8 @@ void auton()
 {
   uint32_t start = vex::timer::system();
 
-  getHomeForDinner();
-
-  printDebug(boolToString(findGreenCube()));
+  //Select autonomous routine to run
+  runRoutine(1);
 
   float autonTime = (vex::timer::system() - start) / 1000;
   printTime(autonTime);

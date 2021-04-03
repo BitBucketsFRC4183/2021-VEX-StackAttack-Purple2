@@ -125,3 +125,87 @@ void walkTheDog()
 
   printDebug("Auto: Task Walk the Dog complete!");
 }
+
+//Strategies for Autonomous
+//All strategies assume that the robot is facing right, and the robot & starting cube are perfectly aligned with the recycling can
+
+//Strategy 1: Drive right, cross sidewalk, return home
+void strategy1()
+{
+  //Drive right
+  Drivetrain.driveFor(vex::forward, 24, inches);
+
+  //Turn to facing the sidewalk
+  Drivetrain.turnFor(vex::right, 90, degrees);
+
+  //Cross sidewalk
+  Drivetrain.driveFor(vex::forward, 24 + 3, inches);
+
+  //Turn to facing the set the table cubes
+  Drivetrain.turnFor(vex::right, 90, degrees);
+
+  //Drive close to the cubes
+  Drivetrain.driveFor(vex::forward, 36, inches);
+
+  //Turn facing home
+  Drivetrain.turnFor(vex::right, 90, degrees);
+
+  //Drive into home
+  Drivetrain.driveFor(vex::forward, 24, inches);
+}
+
+//Stategy 2: Intake starting cube, drive right, drop off cube, cross sidewalk, return home (No vision involved)
+void strategy2()
+{
+  //Intake starting cube
+  spinIntakeMotors(vex::forward, 500);
+
+  //Drive right
+  Drivetrain.driveFor(vex::forward, 24, inches);
+
+  //Drop off starting cube in recycling can
+  spinIntakeMotors(vex::reverse, 500);
+
+  //Turn to facing the sidewalk
+  Drivetrain.turnFor(vex::right, 90, degrees);
+
+  //Cross sidewalk
+  Drivetrain.driveFor(vex::forward, 24 + 3, inches);
+
+  //Turn to facing the set the table cubes
+  Drivetrain.turnFor(vex::right, 90, degrees);
+
+  //Drive close to the cubes
+  Drivetrain.driveFor(vex::forward, 36, inches);
+
+  //Turn facing home
+  Drivetrain.turnFor(vex::right, 90, degrees);
+
+  //Drive into home
+  Drivetrain.driveFor(vex::forward, 24, inches);
+}
+
+//Strategy 3: Same as strategy 2, except after crossing sidewalk, pick up green cube and then return home
+void strategy3()
+{
+  
+}
+
+//Holds possible strategies, all of which need to be tested
+void runRoutine(int strategy)
+{
+  switch(strategy)
+  {
+    case 1: strategy1();
+      break;
+    case 2: strategy2();
+      break;
+    case 3: strategy3();
+      break;
+    default:
+      Drivetrain.driveFor(vex::forward, 10, inches);
+      wait(500, msec);
+      Drivetrain.driveFor(vex::reverse, 10, inches);
+      break;
+  }
+}
