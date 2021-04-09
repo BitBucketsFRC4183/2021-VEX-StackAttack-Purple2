@@ -19,12 +19,14 @@ void spinIntakeMotors(vex::directionType dir, int pause)
   stopIntakeMotors();
 }
 
-void spinRampMotor(vex::directionType dir)
+void spinRampMotors(vex::directionType dir)
 {
-  RampMotor.spin(dir);
+  ArmL.spin(dir);
+  ArmR.spin(dir == vex::forward ? vex::reverse : vex::forward);
 }
 
 void stopRampMotor()
 {
-  RampMotor.stop();
+  ArmL.stop();
+  ArmR.stop();
 }
