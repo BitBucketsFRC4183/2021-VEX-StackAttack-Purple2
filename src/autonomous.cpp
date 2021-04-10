@@ -140,7 +140,7 @@ void strategy1()
   Drivetrain.turnFor(vex::right, 90, degrees);
 
   //Cross sidewalk
-  Drivetrain.driveFor(vex::forward, 24 + 3, inches);
+  Drivetrain.driveFor(vex::forward, 18, inches);
 
   //Turn to facing the set the table cubes
   Drivetrain.turnFor(vex::right, 90, degrees);
