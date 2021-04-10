@@ -134,7 +134,7 @@ void walkTheDog()
 void strategy1()
 {
   //Drive right
-  Drivetrain.driveFor(vex::forward, 24, inches);
+  Drivetrain.driveFor(vex::forward, 36, inches);
 
   //Turn to facing the sidewalk
   Drivetrain.turnFor(vex::right, 90, degrees);
