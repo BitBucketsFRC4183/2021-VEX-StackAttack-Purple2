@@ -146,7 +146,7 @@ void strategy1()
   Drivetrain.turnFor(vex::right, 90, degrees);
 
   //Drive close to the cubes
-  Drivetrain.driveFor(vex::forward, 36, inches);
+  Drivetrain.driveFor(vex::forward, 24, inches);
 
   //Turn facing home
   Drivetrain.turnFor(vex::right, 90, degrees);
