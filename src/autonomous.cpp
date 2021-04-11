@@ -59,9 +59,7 @@ void strategy1()
 //Completes: Get Home for Dinner, Take out the Recycling, Walk the Dog
 void strategy2()
 {
-  //Intake starting cube
-  spinIntakeMotors(vex::forward, 500);
-
+  //Starting cube is already in the robot
   //Drive right
   Drivetrain.driveFor(vex::forward, 36, inches);
 
